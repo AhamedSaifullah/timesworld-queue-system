@@ -40,7 +40,6 @@ class SendEmailNotification implements ShouldQueue
         try {
             $email = new NotificationEmail($this->details);
             $success = Mail::to($this->details['email'])->send($email);
-            Log::info('successfully');
             if ($success) {
                 Log::info('Email sent successfully to ' . $this->details['email']);
             }
